@@ -21,7 +21,6 @@ namespace PlayjackAutomation.Pages
 
         public async Task GoToBonusHistoryAsync()
         {
-            // Навигация директно към историята според условието
             await _page.GotoAsync("https://playjack.com/my-account/account-history");
             await _page.ClickAsync("text=HISTORY");
             await _page.ClickAsync("text=BONUS");

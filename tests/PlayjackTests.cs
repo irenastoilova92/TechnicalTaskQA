@@ -14,13 +14,10 @@ namespace PlayjackAutomation.Tests
             var playjackPage = new PlayjackPage(Page);
             var testEmail = $"qa_user_{System.DateTime.Now.Ticks}@testmail.com";
 
-            // 1. Регистрация
             await playjackPage.RegisterAsync(testEmail, "SecurePass123!");
             
-            // 2. Проверка на Бонус История (Optional Task)
             await playjackPage.GoToBonusHistoryAsync();
             
-            // Валидация на специфичния бонус от снимката в заданието
             var bonusEntry = Page.Locator("text=Registration - Endless");
             await Expect(bonusEntry).ToBeVisibleAsync();
             
